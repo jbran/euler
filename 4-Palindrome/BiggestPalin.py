@@ -1,15 +1,14 @@
-
-
-palin = []
-
 def biggest():
+    big_palin = 0
     for i in reversed(range(100,1000)):
         for j in reversed(range(100,1000)):
             val = i * j
             if isNumPalindrome(val):
-                palin.append(val)
+                if val > big_palin:
+                    big_palin = val
             j -= 1
     i -= 1
+    return big_palin
    
 
 def isNumPalindrome(num):
@@ -21,5 +20,4 @@ def isNumPalindrome(num):
         n = n / 10
     return rev == num
 
-biggest()
-print sorted(palin)[-1]
+print biggest()
