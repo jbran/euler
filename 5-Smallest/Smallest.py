@@ -39,9 +39,13 @@ def checkIfPrime(n, prime):
 
 def findSmallestDivisible(primes, n):
     total = 1
+    sqrt = math.floor(math.sqrt(n))
     for i in primes:
-        val = math.floor(math.log(n) / math.log(i))
-        total = total * (i ** val)
+        if i <= sqrt: 
+            val = math.floor(math.log(n) / math.log(i))
+            total = total * (i ** val)
+        else:
+            total = total * i
 
     return total
 
